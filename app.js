@@ -195,17 +195,17 @@ function renderCart() {
         subtotal += entry.price * entry.quantity;
 
         row.innerHTML = `
-            <td>${entry.name}</td>
-            <td>
+            <td data-label="Item">${entry.name}</td>
+            <td data-label="Qty">
                 <div class="qty-controls">
                     <button aria-label="Decrease" data-action="decrease">-</button>
                     <span>${entry.quantity}</span>
                     <button aria-label="Increase" data-action="increase">+</button>
                 </div>
             </td>
-            <td>₹${entry.price.toFixed(2)}</td>
-            <td>₹${(entry.price * entry.quantity).toFixed(2)}</td>
-            <td><button class="btn icon-btn" data-action="remove">✕</button></td>
+            <td data-label="Price">₹${entry.price.toFixed(2)}</td>
+            <td data-label="Total">₹${(entry.price * entry.quantity).toFixed(2)}</td>
+            <td data-label="Actions"><button class="btn icon-btn" data-action="remove">✕</button></td>
         `;
 
         row.addEventListener("click", (event) => {
@@ -510,4 +510,5 @@ function getMonthKey(date) {
     const d = new Date(date);
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
 }
+
 
