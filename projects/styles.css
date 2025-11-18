@@ -1,0 +1,477 @@
+:root {
+    color-scheme: light;
+    font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --bg: #fef8f2;
+    --panel: #ffffff;
+    --accent: #f96815;
+    --accent-dark: #d54f08;
+    --secondary: #22b5a3;
+    --muted: #6d6d6d;
+    --border: #e5e4e2;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    min-height: 100vh;
+    color: #1f1f1f;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    font-weight: 600;
+}
+
+p {
+    margin: 0;
+    color: var(--muted);
+}
+
+header.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem clamp(1rem, 4vw, 4rem);
+    background: linear-gradient(120deg, #ffe6d2, #fef2d7);
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hero__content h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.hero__stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+.hero__actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+main {
+    padding: clamp(1rem, 4vw, 3rem);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.panel {
+    background: var(--panel);
+    border-radius: 18px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.panel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.panel__header p {
+    margin-top: 0.2rem;
+}
+
+.search input {
+    padding: 0.75rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    width: 240px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.menu-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fffdf9;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.menu-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+}
+
+.menu-card__body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.menu-card__actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+}
+
+.badge {
+    background: rgba(34, 181, 163, 0.15);
+    color: var(--secondary);
+    border-radius: 999px;
+    padding: 0.2rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.btn {
+    border: none;
+    border-radius: 999px;
+    padding: 0.65rem 1.4rem;
+    font-weight: 600;
+    background: var(--accent);
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--accent-dark);
+}
+
+.btn.secondary {
+    background: var(--secondary);
+}
+
+.btn.outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
+
+.btn.danger {
+    background: #f93943;
+}
+
+.btn.icon-btn {
+    border-radius: 999px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.06);
+    color: #1f1f1f;
+}
+
+.cart-table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+}
+
+thead {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+tbody tr + tr {
+    border-top: 1px solid var(--border);
+}
+
+.qty-controls {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.qty-controls button {
+    border: none;
+    width: 32px;
+    background: #f5f5f5;
+    cursor: pointer;
+}
+
+.qty-controls span {
+    padding: 0 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.totals {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.totals div {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+}
+
+.grand-total {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.cart-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-weight: 600;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    font-family: inherit;
+    resize: vertical;
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+.reports-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.report-card {
+    padding: 1rem;
+    background: #fff9f4;
+    border-radius: 14px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.report-card h3 {
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+.report-card p {
+    font-size: 1.5rem;
+    color: #1f1f1f;
+    font-weight: 700;
+    margin-top: 0.3rem;
+}
+
+.manual-sale-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border: 1px dashed var(--border);
+    border-radius: 14px;
+}
+
+.manual-sale-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-weight: 600;
+}
+
+.manual-sale-form input {
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 0.6rem 0.9rem;
+    font-family: inherit;
+}
+
+.manual-sale-form button {
+    align-self: end;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: grid;
+    place-items: center;
+    z-index: 100;
+}
+
+.modal__content {
+    background: white;
+    padding: 2rem;
+    border-radius: 18px;
+    width: min(90%, 420px);
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+
+.modal__content img {
+    margin: 1rem auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.toast {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: #1f1f1f;
+    color: white;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    z-index: 120;
+}
+
+@media (max-width: 768px) {
+    header.hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero__actions {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .hero__actions .btn {
+        flex: 1;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+
+    .panel {
+        padding: 1.25rem;
+    }
+
+    .cart-actions {
+        flex-direction: column;
+    }
+
+    .cart-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 560px) {
+    body {
+        font-size: 15px;
+    }
+
+    .hero__stats {
+        flex-direction: column;
+        gap: 0.4rem;
+    }
+
+    .panel__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search input {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.5rem 0.3rem;
+    }
+
+    .menu-card__actions {
+        flex-direction: column;
+    }
+
+    .menu-card__actions .btn {
+        width: 100%;
+    }
+}
+
+@media print {
+    body {
+        background: #ffffff;
+    }
+
+    header.hero,
+    #menu,
+    #manageMenu,
+    #reports,
+    .hero__actions,
+    .toast,
+    .modal {
+        display: none !important;
+    }
+
+    main {
+        padding: 0;
+    }
+
+    #cart {
+        box-shadow: none;
+        border: none;
+    }
+
+    table {
+        border: 1px solid #000;
+    }
+}
+
